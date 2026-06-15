@@ -79,10 +79,10 @@ Type: `string`
 
 ### <a name="input_template"></a> [template](#input\_template)
 
-Description: The template block describes the configuration for the Container App Job.  
-It defines the main container, optional init containers, resource requirements,  
-environment variables, probes (liveness, readiness, startup), and volume mounts.  
-Use this variable to specify the container image, CPU/memory, commands, arguments,  
+Description: The template block describes the configuration for the Container App Job.
+It defines the main container, optional init containers, resource requirements,
+environment variables, probes (liveness, readiness, startup), and volume mounts.
+Use this variable to specify the container image, CPU/memory, commands, arguments,
 environment variables, and any additional configuration needed for the job's execution environment.
 
 Type:
@@ -181,8 +181,8 @@ The following input variables are optional (have default values):
 
 ### <a name="input_enable_telemetry"></a> [enable\_telemetry](#input\_enable\_telemetry)
 
-Description: This variable controls whether or not telemetry is enabled for the module.  
-For more information see <https://aka.ms/avm/telemetryinfo>.  
+Description: This variable controls whether or not telemetry is enabled for the module.
+For more information see <https://aka.ms/avm/telemetryinfo>.
 If it is set to false, then no telemetry will be collected.
 
 Type: `bool`
@@ -300,6 +300,7 @@ object({
           name             = optional(string)
           custom_rule_type = optional(string)
           metadata         = optional(map(string))
+          identity_id      = optional(string)
           authentication = optional(list(object({
             secret_name       = optional(string)
             trigger_parameter = optional(string)
