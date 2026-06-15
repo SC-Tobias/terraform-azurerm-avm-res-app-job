@@ -233,4 +233,8 @@ resource "azurerm_container_app_job" "this" {
       value               = secret.value.value
     }
   }
+
+  lifecycle {
+    ignore_changes = [event_trigger_config.scale.rules.identity_id]
+  }
 }
