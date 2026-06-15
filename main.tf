@@ -235,6 +235,6 @@ resource "azurerm_container_app_job" "this" {
   }
 
   lifecycle {
-    ignore_changes = [event_trigger_config.scale.rules.identity_id]
+    ignore_changes = [event_trigger_config[0].scale[0].rules[0].identity_id]
   }
 }
