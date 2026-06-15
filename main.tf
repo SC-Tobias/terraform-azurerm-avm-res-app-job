@@ -173,6 +173,7 @@ resource "azurerm_container_app_job" "this" {
               custom_rule_type = rules.value.custom_rule_type
               metadata         = rules.value.metadata
               name             = rules.value.name
+              identity_id      = rules.value.identity_id
 
               dynamic "authentication" {
                 for_each = rules.value.authentication == null ? [] : rules.value.authentication
@@ -232,9 +233,5 @@ resource "azurerm_container_app_job" "this" {
       key_vault_secret_id = secret.value.key_vault_secret_id
       value               = secret.value.value
     }
-  }
-
-  lifecycle {
-    ignore_changes = [event_trigger_config[0].scale[0].rules[0].identity_id]
   }
 }
